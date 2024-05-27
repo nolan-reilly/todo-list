@@ -1,5 +1,8 @@
 // Create project objects in this module
 
+// Need to create a todo module that gets imported into here and saved here as
+// each project should be storing the todo objects
+
 // Return an object that represents a project
 function project(_title, _description) {
     const title = _title;

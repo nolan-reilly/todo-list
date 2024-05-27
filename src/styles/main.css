@@ -56,6 +56,12 @@
     color: white;
 }
 
+.project-date {
+    color: gray;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
 .project-load-btn {
     background-color: black;
     color: white;

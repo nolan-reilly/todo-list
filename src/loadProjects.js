@@ -38,6 +38,13 @@ function loadProjects(projects) {
 
         projectCard.appendChild(projectDescription);
 
+        // Add project creation date
+        const projectCreationDate = document.createElement("p");
+        projectCreationDate.classList.add("project-date");
+        projectCreationDate.textContent = "Created: " + projects[i].getDateCreated();
+
+        projectCard.appendChild(projectCreationDate);
+
         // Add load button
         const loadButton = document.createElement("button");
         loadButton.classList.add("project-load-btn");
