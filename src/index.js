@@ -8,6 +8,10 @@ import loadProjects from "./loadProjects.js";
 // Dummy Data
 const projects = [];
 
+function displayProjectForm() {
+    
+}
+
 const projectObject = project("Another title", "A project description...");
 projects.push(projectObject);
 

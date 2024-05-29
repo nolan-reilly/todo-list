@@ -9,9 +9,25 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
+    
     <div class="container">
-        <h1>Todo List</h1>
+        <button class="add-project-btn" onclick="displayProjectForm()">Add Project &#9660;</button>
 
+        <form>
+            <div class="form-container">
+                <div class="col">
+                    <label for="title">Title</label>
+                    <input id="title" type="text">
+                </div>
+                
+                <div class="col">
+                    <label for="description">Description</label>
+                    <input for="description" type="text">
+                </div>
+    
+                <button class="submit-btn" type="submit">Create Project</button>
+            </div>
+        </form>
         <div id="content"></div>
     </div>
 </body>

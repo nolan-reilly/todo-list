@@ -3,6 +3,17 @@
 function loadProjects(projects) {
     const content = document.getElementById("content");
 
+    // Add a title to the page
+    const pageTitle = document.createElement("h1");
+    pageTitle.textContent = "Project's List";
+    content.appendChild(pageTitle);
+
+    // Add the project creation button
+    const addProjectButton = document.createElement("button");
+    addProjectButton.innerHTML = "Add Project &#9660;"
+    addProjectButton.classList.add("add-project-btn");
+    content.appendChild(addProjectButton);
+
     // Create a projects container
     const projectsContainer = document.createElement("div");
     projectsContainer.classList.add("projects");
