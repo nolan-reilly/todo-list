@@ -1,16 +1,15 @@
 import "./styles/main.css"
 import project from "./project.js";
 import loadProjects from "./loadProjects.js";
+import todo from "./todo.js";
+
+document.getElementById("")
 
 // Store an array of project objects, for each project object let it store
 // an array of todo objects
 
 // Dummy Data
 const projects = [];
-
-function displayProjectForm() {
-    
-}
 
 const projectObject = project("Another title", "A project description...");
 projects.push(projectObject);
