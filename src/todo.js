@@ -1,10 +1,9 @@
-function todo(_title, _description, _dueDate, _priority) {
+function todo(_title, _description, _dueDate) {
     const title = _title;
     const description = _description;
     const dueDate = _dueDate;
-    const priority = _priority;
 
-    return { title, description, dueDate, priority };
+    return { title, description, dueDate};
 }
 
 export default todo;

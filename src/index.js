@@ -22,15 +22,31 @@ const projects = [
     { 
         title: "Project title",
         todoList: [
-            {title: "yes"},
-            {title: "no"}
+            {
+                title: "yes",
+                description : "The best description",
+                dueDate: "12/20/22",
+            },
+            {
+                title: "no",
+                description : "Not the best description",
+                dueDate: "9/11/23",
+            }
         ]
     },
     { 
         title: "Other Project",
         todoList: [
-            {title: "not"},
-            {title: "me"}
+            {
+                title: "not",
+                description : "The best description",
+                dueDate: "12/20/22",
+            },
+            {
+                title: "me",
+                description : "Not the best description",
+                dueDate: "9/11/23",
+            }
         ]
     }
 ]
@@ -68,7 +84,7 @@ function displayProjects() {
 
         projectCard.innerHTML = `
             <h2 id="projectLink${i}" data-value="${i}">${projects[i].title}</h2>
-            <button id="removeBtn${i} data-value="${i}">Remove Project</button>
+            <button id="removeBtn${i}" data-value="${i}">Remove Project</button>
         `
 
         content.appendChild(projectCard);
@@ -82,11 +98,11 @@ function displayProjects() {
         })
 
         // ---- Need to get the remove button to work ----
-        // const removeBtn = document.getElementById(`removeBtn${i}`);
-        // removeBtn.addEventListener("click", (e) => {
-        //     projects.splice(e.target.dataset.value, 1);
-        //     displayProjects();
-        // })
+        const removeBtn = document.getElementById(`removeBtn${i}`);
+        removeBtn.addEventListener("click", (e) => {
+            projects.splice(e.target.dataset.value, 1);
+            displayProjects();
+        })
     }
 }
 
@@ -112,11 +128,22 @@ function displayTodoList(index) {
     createTodoForm(index);
 
     for (let i = 0; i < projects[index].todoList.length; i++) {
-        const todo = document.createElement("p");
-    
-        todo.textContent = projects[index].todoList[i].title;
+        const todo = document.createElement("div");
+
+        todo.innerHTML = `
+            <h2>${projects[index].todoList[i].title}</h2>
+            <button id="removeBtn${i}" data-value="${i}">Remove Todo</button>
+            <p>Description: ${projects[index].todoList[i].description}</p>
+            <p>Due: ${projects[index].todoList[i].dueDate}</p>
+        `
     
         content.appendChild(todo);
+
+        const removeBtn = document.getElementById(`removeBtn${i}`);
+        removeBtn.addEventListener("click", (e) => {
+            projects[index].todoList.splice(e.target.dataset.value, 1);
+            displayTodoList(index);
+        })
     }
 }
 
@@ -135,9 +162,6 @@ function createTodoForm(projectIndex) {
         <label for="dueDate">Due Date</label>
         <input id="dueDate" type="text">
 
-        <label for="priority">Priority</label>
-        <input id="priority" type="text">
-
         <button type="submit">Add Project</button>
     `;
 
@@ -147,9 +171,8 @@ function createTodoForm(projectIndex) {
         const titleValue = document.getElementById("title").value;
         const descriptionValue = document.getElementById("description").value;
         const dueDateValue = document.getElementById("dueDate").value;
-        const priorityValue = document.getElementById("priority").value;
         
-        projects[projectIndex].todoList.push(todo(titleValue, descriptionValue, dueDateValue, priorityValue));
+        projects[projectIndex].todoList.push(todo(titleValue, descriptionValue, dueDateValue));
         
         displayTodoList(projectIndex);
     })
