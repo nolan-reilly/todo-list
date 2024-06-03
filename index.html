@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Todo List</title>
 </head>
 <body>
@@ -10,30 +11,33 @@
         Create a project, that has a title
     -->
 
+    <h2>Add Todo</h2>
     <form id="form">
         <div class="formContainer">
             <div class="row">
                 <label for="title">Title</label>
-                <input id="title" type="text">
+                <input class="formInput" id="title" type="text">
             </div>
 
             <div class="row">
-                <label for="description">description</label>
-                <input id="description" type="text">
+                <label for="description">Description</label>
+                <input class="formInput" id="description" type="text">
             </div>
 
             <div class="row">
                 <label for="dueDate">Due Date</label>
-                <input id="dueDate" type="text">       
+                <input class="formInput" id="dueDate" type="text">       
             </div>
 
             <div class="row">
                 <label for="priority">Priority</label>
-                <input id="priority" type="text">
+                <input class="formInput" id="priority" type="text">
             </div>
+
+            <button id="submitBtn" type="submit">Add</button>
         </div>
 
-        <button id="submitBtn" type="submit">Add</button>
+
     </form>
 
     <div id="content"></div>

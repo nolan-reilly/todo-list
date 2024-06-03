@@ -1,6 +1,6 @@
 const content = document.getElementById("content");
 
-const todoList = []
+const todoList = [{title: "this", description: "Short description", dueDate: "10/2/10", priority: "10"}]
 
 const form = document.getElementById("form");
 
@@ -32,13 +32,25 @@ function displayTodoList() {
 
         todo.innerHTML = `
             <div class="todoContainer">
-                <h2>${todoList[i].title}</h2>
-                <p>${todoList[i].description}</p>
-                <p>${todoList[i].dueDate}</p>
-                <p>${todoList[i].priority}</p>
+                <div class="row">
+                    <h2>${todoList[i].title}</h2>
+                    <button onclick="deleteTodo(${i})">X</button>
+                </div>
+                
+                <p>Description: ${todoList[i].description}</p>
+                <p>Due: ${todoList[i].dueDate}</p>
+                <p>Priority: ${todoList[i].priority}</p>
             </div>
         `
 
         content.appendChild(todo);
     }
 }
+
+
+function deleteTodo(todoIndex) {
+    todoList.splice(todoIndex, 1);
+    displayTodoList();
+}
+
+displayTodoList();
